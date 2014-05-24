@@ -31,7 +31,8 @@
 
 #include "na-tray.h"
 
-#define ICON_SPACING 1
+#define VERT_PADDING 3
+#define ICON_SPACING 6
 #define MIN_BOX_SIZE 3
 
 typedef struct
@@ -597,6 +598,8 @@ na_tray_init (NaTray *tray)
   priv->orientation = GTK_ORIENTATION_HORIZONTAL;
 
   priv->frame = gtk_alignment_new (0.5, 0.5, 1.0, 1.0);
+  gtk_alignment_set_padding (GTK_ALIGNMENT(priv->frame),
+                             VERT_PADDING, VERT_PADDING, 0, 0);
   gtk_container_add (GTK_CONTAINER (tray), priv->frame);
   gtk_widget_show (priv->frame);
 
